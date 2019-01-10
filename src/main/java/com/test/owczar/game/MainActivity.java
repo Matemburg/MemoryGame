@@ -59,7 +59,14 @@ public class MainActivity extends AppCompatActivity {
         return directory.getAbsolutePath();
     }
 
-    public void takeAPictureIntent(View view) {
+
+    public void StartGame(View view)
+    {
+        Intent intent = new Intent(this, Game.class);
+        startActivity(intent);
+    }
+
+    public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, ++takenImgsCounter);
